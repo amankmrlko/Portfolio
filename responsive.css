@@ -1,0 +1,72 @@
+@media screen and (max-width: 700px){
+    .nav-links{
+        display:none;
+    }
+    .resume{
+        position: fixed;
+        z-index: 200;
+        right: 50%;
+        bottom: 20px;
+        margin: 0 auto;
+        transform: scale(0.9) translate(50%);
+        
+    }
+}
+@media screen and (min-width: 701px){
+    .hamburger{
+        display:none;
+    }
+}
+@media screen and (max-width: 1201px){
+    .project{
+        display: block;
+    }
+    .info2 p{
+        text-align: center !important;
+    }
+    .info2{
+        display: grid;
+        width:100% !important;
+    }
+}
+@media screen and (max-width: 760px){
+   
+    .about-flex{
+        display: block;
+    }
+    .info, .skills{
+        width:100%;
+    }
+}
+@media screen and (min-width: 377px) and (max-width: 500px){
+    .project img{
+        width:300px !important;
+        height: 200px;
+        object-fit: cover !important;
+    }
+}
+@media screen and (min-width: 322px) and (max-width: 376px){
+    .project img{
+        width:318px !important;
+        height: 200px;
+        object-fit: cover !important;
+    }
+    .project{
+        padding: 20px 10px;
+    }
+}
+@media screen and (min-width: 100px) and (max-width: 321px){
+    .project img{
+        width:270px !important;
+        height: 135px;
+        object-fit: cover !important;
+    }
+    .project{
+        padding: 20px 10px;
+    }
+}
+@media screen and (min-width: 100px) and (max-width: 426px){
+    .contact-form{
+        padding: 20px 10px;
+    }
+}
