@@ -62,13 +62,17 @@ p{
     color: #EE9B00;
 }
 
-.resume{
-    position: fixed;
-    z-index: 200;
-    right: 4%;
-    bottom: 50px;
+.res{
+    position: relative;
 }
 
+.resume{
+    position: sticky;
+    z-index: 200;
+    top: 90%;
+    left: 85%;
+    
+}
 /* Glow Circles */
 
 .cir1 {
