@@ -61,9 +61,10 @@ p{
 .name{
     color: #EE9B00;
 }
-
 .res{
     position: relative;
+    padding-bottom: 25px;
+    
 }
 
 .resume{
@@ -71,30 +72,26 @@ p{
     z-index: 200;
     top: 90%;
     left: 85%;
-    
+    margin-right: 20px;
 }
+
+
+
 /* Glow Circles */
 
-.cir1 {
+#c1 {
     position: absolute;
-    top: 190px;
-    left: -20%;
-    height: 200px;
-    width: 200px;
-    border-radius: 50%;
-    box-shadow: 210px 0px 200px #9B2226;
-    
+    top: -80px;
+    left: 0%;
+    opacity: 0.5;
+       
 }
 
-.cir2 {
+#c2 {
     position: absolute;
-    top: 450px;
-    right: -20%;
-    height: 200px;
-    width: 200px;
-    border-radius: 50%;
-    box-shadow: -210px 0px 200px #005F73;
-    
+    top: 200px;
+    right: 0%;
+    opacity: 0.5;
 }
 
 
@@ -378,6 +375,7 @@ label p{
     text-align: center;
     background-color: #000;
     padding: 40px 0 10px 0;
+    
     
 }
 .social a img{
