@@ -37,6 +37,7 @@ function myFunction() {
   let submitBtn = document.querySelector("#submitDetails");
   let submitName = document.querySelector("#nameform");
   let submitEmail = document.querySelector("#emailform");
+  let textarea = document.querySelector("#textarea");
   let subpop = document.querySelector(".subpopup");
 
   let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -66,6 +67,8 @@ function myFunction() {
 
         submitName.value="";
         submitEmail.value="";
+        textarea.value="";
+
       setTimeout(()=>{
 
         submsg.remove();
