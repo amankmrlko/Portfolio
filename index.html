@@ -15,6 +15,9 @@
   <body>
     <img id="c1" src="grad1.png" />
     <img id="c2" src="grad2.png" />
+
+    <!-- submit message -->
+    <div class="subpopup"></div>
     <!-- resume button -->
     <div class="res">
       <a
@@ -127,7 +130,7 @@
                 PhotoVault is a dynamic and interactive web application designed
                 for photo management and visualization. Built using HTML, CSS,
                 and JavaScript, this project showcases a sophisticated approach
-                to presenting images with enhanced user experience and smooth
+                to present images with enhanced user experience and smooth
                 interactions.
               </p>
               <a
@@ -148,14 +151,24 @@
             back to you as soon as possible.
           </p>
           <div class="contact-form animated">
-            <form action="#">
+            <form action="">
               <label for="Name"><p>NAME</p></label>
-              <input type="text" placeholder="Enter your Full Name" required />
+              <input
+                id="nameform"
+                type="text"
+                placeholder="Enter your Full Name"
+                required
+              />
               <label for="email"><p>EMAIL</p></label>
-              <input type="email" placeholder="example@email.com" required />
+              <input
+                id="emailform"
+                type="email"
+                placeholder="example@email.com"
+                required
+              />
               <label for="textarea"><p>MESSAGE</p></label>
               <textarea placeholder="Enter your message"></textarea>
-              <button class="sub-btn">
+              <button id="submitDetails" class="sub-btn">
                 <p>SUBMIT</p>
               </button>
             </form>
