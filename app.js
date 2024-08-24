@@ -31,3 +31,50 @@ function myFunction() {
   icon.addEventListener("click",()=>{
     document.getElementById('home').scrollIntoView({});
   });
+
+  // submit button is clicked
+
+  let submitBtn = document.querySelector("#submitDetails");
+  let submitName = document.querySelector("#nameform");
+  let submitEmail = document.querySelector("#emailform");
+  let subpop = document.querySelector(".subpopup");
+
+  let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+ 
+
+  submitBtn.addEventListener("click", (event)=>{
+    if (submitName.value.trim() != "" && emailPattern.test(submitEmail.value.trim())){
+      event.preventDefault();
+      
+        var submsg = document.createElement('div');
+        submsg.classList.add("submsg");        
+        submsg.classList.add("subani");
+        subpop.appendChild(submsg);
+
+        let msg = document.createElement('div');
+        msg.classList.add("msg");
+        submsg.appendChild(msg);
+
+         let text = document.createElement('h4');
+         text.textContent = "Your response is submitted!";
+         msg.appendChild(text);
+
+         let load = document.createElement('div');
+        load.classList.add("load");
+        load.classList.add("loadani");
+        submsg.appendChild(load);
+
+        submitName.value="";
+        submitEmail.value="";
+      setTimeout(()=>{
+
+        submsg.remove();
+        
+
+      },3500);
+
+     
+    }
+    
+
+  });
