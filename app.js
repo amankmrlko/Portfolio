@@ -1,83 +1,104 @@
 function myFunction() {
-    var ham = document.querySelector(".nav-links");
-    if (ham.style.display === "block") {
-      ham.style.display = "none";
-    } else {
-      ham.style.display = "block";
-      ham.style.backgroundColor = "#001219";
-      ham.style.opacity = "0.9";
-    }
+  var ham = document.querySelector(".nav-links");
+  if (ham.style.display === "block") {
+    ham.style.display = "none";
+  } else {
+    ham.style.display = "block";
+    ham.style.backgroundColor = "#001219";
+    ham.style.opacity = "0.9";
   }
+}
 
-  // OnScroll Animation
-
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("fade-in");
-      }
-    });
+// OnScroll Animation
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("fade-in");
+    }
   });
-  
-  let animateElements = document.querySelectorAll(".animated");
-  animateElements.forEach(element => {
-    observer.observe(element);
-  });
+});
 
-  
-  // Home Button from Icon
+let animateElements = document.querySelectorAll(".animated");
+animateElements.forEach(element => {
+  observer.observe(element);
+});
 
-  let icon = document.querySelector(".aman");
-  icon.addEventListener("click",()=>{
-    document.getElementById('home').scrollIntoView({});
-  });
+// Home Button from Icon
+let icon = document.querySelector(".aman");
+icon.addEventListener("click", () => {
+  document.getElementById('home').scrollIntoView({});
+});
 
-  // submit button is clicked
-
-  let submitBtn = document.querySelector("#submitDetails");
+document.addEventListener('DOMContentLoaded', () => {
+  // Form and input fields
+  let form = document.querySelector("form");
   let submitName = document.querySelector("#nameform");
   let submitEmail = document.querySelector("#emailform");
   let textarea = document.querySelector("#textarea");
   let subpop = document.querySelector(".subpopup");
 
   let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
- 
 
-  submitBtn.addEventListener("click", (event)=>{
-    if (submitName.value.trim() != "" && emailPattern.test(submitEmail.value.trim())){
-      event.preventDefault();
+  form.addEventListener("submit", (event) => {
+    // Validate the form inputs
+    if (submitName.value.trim() === "" || !emailPattern.test(submitEmail.value.trim())) {
+      event.preventDefault(); // Prevent form submission if validation fails
       
-        var submsg = document.createElement('div');
-        submsg.classList.add("submsg");        
-        submsg.classList.add("subani");
-        subpop.appendChild(submsg);
+    } else {
+      // Prevent default form submission behavior
+      event.preventDefault();
 
-        let msg = document.createElement('div');
-        msg.classList.add("msg");
-        submsg.appendChild(msg);
+      // Prepare data for Formspree
+      const formData = new FormData(form);
 
-         let text = document.createElement('h4');
-         text.textContent = "Your response is submitted!";
-         msg.appendChild(text);
+      // Show submission feedback
+      var submsg = document.createElement('div');
+      submsg.classList.add("submsg");
+      submsg.classList.add("subani");
+      subpop.appendChild(submsg);
 
-         let load = document.createElement('div');
-        load.classList.add("load");
-        load.classList.add("loadani");
-        submsg.appendChild(load);
+      let msg = document.createElement('div');
+      msg.classList.add("msg");
+      submsg.appendChild(msg);
 
-        submitName.value="";
-        submitEmail.value="";
-        textarea.value="";
+      let text = document.createElement('h4');
+      text.textContent = "Your response is submitted!";
+      msg.appendChild(text);
 
-      setTimeout(()=>{
+      let load = document.createElement('div');
+      load.classList.add("load");
+      load.classList.add("loadani");
+      submsg.appendChild(load);
 
-        submsg.remove();
-        
+      // Send data to Formspree
+      fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Success:', data);
 
-      },3500);
+        // Clear input fields
+        submitName.value = "";
+        submitEmail.value = "";
+        textarea.value = "";
 
-     
+        // Remove feedback message after a delay
+        setTimeout(() => {
+          submsg.remove();
+        }, 3000);
+
+        // Optionally, add a redirect or further action if needed
+        // window.location.href = 'https://your-thank-you-page-url.com';
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+        // Optionally, handle errors here
+      });
     }
-    
-
   });
+});
