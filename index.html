@@ -130,7 +130,7 @@
                 PhotoVault is a dynamic and interactive web application designed
                 for photo management and visualization. Built using HTML, CSS,
                 and JavaScript, this project showcases a sophisticated approach
-                to present images with enhanced user experience and smooth
+                to presenting images with enhanced user experience and smooth
                 interactions.
               </p>
               <a
@@ -151,10 +151,12 @@
             back to you as soon as possible.
           </p>
           <div class="contact-form animated">
-            <form action="">
+            <form action="https://formspree.io/f/xpwabzqd" method="POST">
+              <!-- https://formspree.io/f/xpwabzqd -->
               <label for="Name"><p>NAME</p></label>
               <input
                 id="nameform"
+                name="name"
                 type="text"
                 placeholder="Enter your Full Name"
                 required
@@ -162,13 +164,18 @@
               <label for="email"><p>EMAIL</p></label>
               <input
                 id="emailform"
+                name="email"
                 type="email"
                 placeholder="example@email.com"
                 required
               />
               <label for="textarea"><p>MESSAGE</p></label>
-              <textarea id="textarea" placeholder="Enter your message"></textarea>
-              <button id="submitDetails" class="sub-btn">
+              <textarea
+                id="textarea"
+                name="message"
+                placeholder="Enter your message"
+              ></textarea>
+              <button type="submit" id="submitDetails" class="sub-btn">
                 <p>SUBMIT</p>
               </button>
             </form>
