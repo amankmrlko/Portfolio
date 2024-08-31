@@ -14,6 +14,8 @@ const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add("fade-in");
+    } else {
+      entry.target.classList.remove("fade-in");
     }
   });
 });
@@ -22,6 +24,7 @@ let animateElements = document.querySelectorAll(".animated");
 animateElements.forEach(element => {
   observer.observe(element);
 });
+
 
 // Home Button from Icon
 let icon = document.querySelector(".aman");
@@ -92,12 +95,12 @@ document.addEventListener('DOMContentLoaded', () => {
           submsg.remove();
         }, 3000);
 
-        // Optionally, add a redirect or further action if needed
+        
         // window.location.href = 'https://your-thank-you-page-url.com';
       })
       .catch((error) => {
         console.error('Error:', error);
-        // Optionally, handle errors here
+        
       });
     }
   });
